@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Tweakpane Plugin: HTML Color Picker</title>
+	</head>
+	<body>
+		<h1>Tweakpane Plugin: HTML Color Picker</h1>
+		<!-- UMD: Use tweakpane 3 for umd support
+		<script src="https://cdn.jsdelivr.net/npm/tweakpane@3/dist/tweakpane.min.js"></script>
+		<script src="../dist/tweakpane-plugin-html-color-picker.umd.min.js"></script>
+		<script>
+			// UMD Construction
+			const pane = new Tweakpane.Pane();
+			window.pane = pane;
+			console.log('Tweakpane', pane); // Log pane object to confirm import
+			console.log('TweakpanePlugin:', HtmlColorPickerPlugin); // Log plugin object to confirm import
+
+			// Manually inject CSS for tweakpane 3
+			if (HtmlColorPickerPlugin.css) {
+				const style = document.createElement('style');
+				style.textContent = HtmlColorPickerPlugin.css;
+				document.head.appendChild(style);
+			}
+
+			// Register plugin
+			pane.registerPlugin(HtmlColorPickerPlugin);
+
+			// Example usage
+			const params = {
+				color: '#cccccc',
+			};
+			pane
+				.addInput(params, 'color', { // tweakpane 3 has no .addBinding() method
+					view: 'html-color-picker',
+				})
+				.on('change', (event) => {
+					document.body.style.backgroundColor = event.value;
+				});
+		</script>
+		-->
+		<!-- CJS: Use tweakpane 3 for cjs support
+		<script>
+			// CJS (CommonJS) Imports for Node.js or bundler
+			const {Pane} = require('tweakpane');
+			const HtmlColorPickerPlugin = require('tweakpane-plugin-html-color-picker');
+			console.log('Tweakpane', pane); // Log pane object to confirm import
+			console.log('TweakpanePlugin:', HtmlColorPickerPlugin); // Log plugin object to confirm import
+
+			// CJS Construction
+			pane = new Pane();
+
+			// Manually inject CSS for tweakpane 3
+			if (HtmlColorPickerPlugin.css) {
+				const style = document.createElement('style');
+				style.textContent = HtmlColorPickerPlugin.css;
+				document.head.appendChild(style);
+			}
+
+			// Register Plugin
+			pane.registerPlugin(HtmlColorPickerPlugin);
+
+			// Example usage
+			const params = {
+				color: '#cccccc',
+			};
+
+			pane
+				.addInput(params, 'color', {
+					view: 'html-color-picker',
+				})
+				.on('change', (event) => {
+					document.body.style.backgroundColor = event.value;
+				});
+		</script>
+		-->
+		<!-- ESM: Use tweakpane 4 for esm support -->
+		<script type="module">
+			// ESM Imports (Default)
+			import {Pane} from 'https://cdn.jsdelivr.net/npm/tweakpane@4/dist/tweakpane.min.js';
+			import * as HtmlColorPickerPlugin from '../dist/tweakpane-plugin-html-color-picker.min.js';
+
+			// ESM Construction
+			const pane = new Pane();
+
+			// Example usage
+			pane.registerPlugin(HtmlColorPickerPlugin);
+			console.log('Plugin:', HtmlColorPickerPlugin); // Log plugin object
+
+			const params = {
+				color: '#cccccc',
+			};
+
+			pane
+				.addBinding(params, 'color', { // tweakpane 4 has an .addBinding() method to bind to an object property
+					view: 'html-color-picker',
+				})
+				.on('change', (event) => {
+					document.body.style.backgroundColor = event.value;
+				});
+			console.log('Pane', pane); // Log pane object
+		</script>
+		<!---->
+	</body>
+</html>

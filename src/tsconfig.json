@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"lib": [
+			"DOM",
+			"es6"
+		],
+		"moduleResolution": "bundler",
+		"noImplicitAny": false,
+		"noImplicitReturns": false,
+		"noImplicitThis": false,
+		"strict": true,
+		"target": "es6"
+	}
+}

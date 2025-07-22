@@ -1,0 +1,70 @@
+// Import core styles
+@use '@tweakpane/core/lib/sass/tp';
+
+// Additional style for the plugin
+.#{tp.$prefix}-htmlcolorv {
+	// Extend a general input view style
+	@extend %tp-input;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	&_input {
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		padding: 0;
+	}
+
+	&_text-container {
+		min-width: 0; // Allows the container to shrink without overflow issues
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: tp.cssVar('input-fg');
+		cursor: text;
+		height: calc(#{tp.cssVar('container-unit-size')} * 1.5);
+		line-height: calc(#{tp.cssVar('container-unit-size')} * 1.5);
+	}
+
+	&_hash {
+		display: inline-flex;
+	}
+
+	&_text {
+		text-transform: lowercase;
+		display: inline-flex;
+		padding: 0;
+		margin: 0;
+		width: 6ch;
+		overflow: hidden;
+	}
+
+	&_text-field {
+		display: inline-flex;
+		background: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+		font-family: tp.cssVar('base-font');
+		font-weight: inherit;
+		font-size: inherit;
+		color: tp.cssVar('input-fg');
+		height: inherit;
+		line-height: inherit;
+		width: 0; // Hidden by default
+		height: 0;
+		overflow: hidden;
+		text-transform: lowercase;
+
+		&:hover {
+			border-color: tp.cssVar('input-bg-active');
+			border-width: 1px;
+		}
+		&:focus {
+			border-color: tp.cssVar('input-bg-focus');
+			border-width: 1px;
+		}
+	}
+}
